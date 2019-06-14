@@ -8,10 +8,16 @@ const inc = () => n = n + 1
 const gen = () => inc() && n
 
 const seed: Task[] = [
-  { id: gen(), title: 'Task One', status: 'ready' },
-  { id: gen(), title: 'Task Two', status: 'started' },
-  { id: gen(), title: 'Task Three', status: 'delivered' },
-  { id: gen(), title: 'Task Four', status: 'finished' }
+  { id: gen(), title: 'Mow the Lawn', status: 'ready' },
+  { id: gen(), title: 'Feed the Cat', status: 'started' },
+  { id: gen(), title: 'Watch a Movie', status: 'delivered' },
+  { id: gen(), title: 'Take a Walk', status: 'finished' },
+  { id: gen(), title: 'See the Sights', status: 'ready' },
+  { id: gen(), title: 'Visit the World', status: 'ready' },
+  { id: gen(), title: 'Take a Break', status: 'finished' },
+  { id: gen(), title: 'Pick up Sticks', status: 'delivered' },
+  { id: gen(), title: 'Lay it Down', status: 'ready' },
+  { id: gen(), title: 'Put them Up', status: 'completed' },
 ];
 
 type State = { tasks: Task[], newTask: string }
@@ -46,7 +52,10 @@ export class TaskManager extends React.Component<{}, State> {
             <input type='text' value={this.state.newTask} onChange={(e) => this.setState({ newTask: e.target.value })} />
             <button type='submit' onClick={this.handleCreateTask}>add task</button>
             <br/><br/>
-            <div className='Task-list'>
+            <div className='TaskList'>
+                <div className='TaskList-title'>
+                    CURRENT
+                </div>
                 {this.state.tasks.map(
                     task => <TaskListItem
                         {...task}

@@ -1,6 +1,7 @@
 import React from "react";
 import { Task, nextActions } from "../values/Task";
 import classnames from 'classnames';
+import { FiCheck } from 'react-icons/fi';
 
 export class TaskListItem extends React.Component<Task & {onAction: Function}> {
     render() {
@@ -13,6 +14,7 @@ export class TaskListItem extends React.Component<Task & {onAction: Function}> {
       return <div className={classnames('Task', done && 'Task--done')}>
             <div className='Task-headline'>
                 <div className='Task-details'>
+                    {done && <FiCheck className='Task--done-checkmark' size={24} />}
                     <div className='Task-title'>{title}</div>
                     {/* <div className='Task-tags'>#tag #goes #here</div> */}
                 </div>
